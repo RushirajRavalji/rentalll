@@ -19,7 +19,7 @@ class EquipmentsCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Image.asset('assets/equipment_image.png', height: 120),
+          Image.asset('assets/onboarding.png', height: 200),
           Text(
             equipment.model,
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -29,15 +29,10 @@ class EquipmentsCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
-                children: [
-                  Image.asset('assets/location.png'),
-                  const SizedBox(width: 5),
-                  Text(equipment.location),
-                ],
+                children: [const SizedBox(width: 5), Text(equipment.location)],
               ),
               Row(
                 children: [
-                  Image.asset('assets/power.png'),
                   const SizedBox(width: 5),
                   Text('${equipment.powerRating.toStringAsFixed(0)}W'),
                 ],
@@ -53,10 +48,10 @@ class EquipmentsCard extends StatelessWidget {
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
-                  color: Colors.blue,
+                  color: Colors.black,
                 ),
               ),
-            ],
+             ],
           ),
         ],
       ),

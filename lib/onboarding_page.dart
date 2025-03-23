@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rentall/presentation/pages/equipment_list_screen.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -10,16 +11,12 @@ class OnboardingPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height:
-                MediaQuery.of(context).size.height *
-                0.5, // 50% of screen height
-            width: double.infinity, // Full width
+            height: MediaQuery.of(context).size.height * 0.5,
+            width: double.infinity,
             decoration: BoxDecoration(
               image: const DecorationImage(
                 image: AssetImage('assets/onboarding.png'),
-                fit:
-                    BoxFit
-                        .contain, // Changed to contain for better aspect ratio
+                fit: BoxFit.contain,
               ),
             ),
           ),
@@ -45,10 +42,16 @@ class OnboardingPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
-                    width: double.infinity, // Full width button
+                    width: double.infinity,
                     height: 54,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EquipmentListScreen()),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.black,
                         backgroundColor: Colors.white,
