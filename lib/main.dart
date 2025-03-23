@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart'; // Added Firestore import
 import 'package:rentall/firebase_options.dart';
 import 'package:rentall/onboarding_page.dart';
 

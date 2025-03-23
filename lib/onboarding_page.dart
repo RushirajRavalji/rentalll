@@ -6,29 +6,67 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff2C2B34),
       body: Column(
         children: [
-          // Container(
-          //   decoration: BoxDecoration(
-          //     image: DecorationImage(
-          //       image: AssetImage('assets/onboarding.png'),
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          // ),
           Container(
-            child: Column(
-              children: [
-                Text(
-                  "Hospital Equipments \n get anythime anywhere",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
+            height:
+                MediaQuery.of(context).size.height *
+                0.5, // 50% of screen height
+            width: double.infinity, // Full width
+            decoration: BoxDecoration(
+              image: const DecorationImage(
+                image: AssetImage('assets/onboarding.png'),
+                fit:
+                    BoxFit
+                        .contain, // Changed to contain for better aspect ratio
+              ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Hospital Equipments \nGet Anytime Anywhere",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SizedBox(height: 10),
-              ],
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Premium and prestige equipment, whenever you want',
+                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    width: double.infinity, // Full width button
+                    height: 54,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: const Text(
+                        'Find Your Preference',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
