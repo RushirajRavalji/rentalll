@@ -7,14 +7,14 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff2C2B34),
+      backgroundColor: const Color(0xFF121212), // Dark background
       body: Column(
         children: [
           Container(
             height: MediaQuery.of(context).size.height * 0.5,
             width: double.infinity,
-            decoration: BoxDecoration(
-              image: const DecorationImage(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
                 image: AssetImage('assets/onboarding.png'),
                 fit: BoxFit.contain,
               ),
@@ -38,7 +38,7 @@ class OnboardingPage extends StatelessWidget {
                   const SizedBox(height: 10),
                   const Text(
                     'Premium and prestige equipment, whenever you want',
-                    style: TextStyle(color: Colors.grey, fontSize: 16),
+                    style: TextStyle(color: Color(0xFFAAAAAA), fontSize: 16),
                   ),
                   const SizedBox(height: 20),
                   SizedBox(
@@ -49,12 +49,13 @@ class OnboardingPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => EquipmentListScreen()),
+                            builder: (context) => EquipmentListScreen(),
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.black,
-                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.white,
+                        backgroundColor: const Color(0xFF2A2A2A),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
