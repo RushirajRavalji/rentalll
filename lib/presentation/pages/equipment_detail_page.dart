@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:rentall/data.models/equipment.dart';
 import 'package:rentall/presentation/widgets/equipments_card.dart';
+import 'package:rentall/presentation/pages/maps_detail_page.dart'; // Import the MapsDetailPage
 
 class EquipmentDetailPage extends StatelessWidget {
   const EquipmentDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Create equipment instance to pass to both the card and the maps page
+    final equipment = Equipment(
+      model: "Advanced Patient Monitor",
+      location: "Wing A",
+      powerRating: 120,
+      pricePerHour: 50,
+    );
+
     return Scaffold(
       backgroundColor: const Color(0xFF121212),
       appBar: AppBar(
@@ -25,15 +34,7 @@ class EquipmentDetailPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              EquipmentsCard(
-                equipment: Equipment(
-                  model: "Advanced Patient Monitor",
-                  location: "Wing A",
-                  powerRating: 120,
-                  pricePerHour: 50,
-                ),
-                isDetailCard: true,
-              ),
+              EquipmentsCard(equipment: equipment, isDetailCard: true),
               const SizedBox(height: 20),
 
               // Equipment Provider Section
@@ -110,39 +111,90 @@ class EquipmentDetailPage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Equipment Location Section
-              const Text(
-                "Equipment Location",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Equipment Location",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  // View on Map button
+                  TextButton.icon(
+                    icon: const Icon(Icons.map, color: Color(0xFF9C27B0)),
+                    label: const Text(
+                      "Full Map View",
+                      style: TextStyle(color: Color(0xFF9C27B0)),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => MapsDetailPage(equipment: equipment),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ),
               const SizedBox(height: 10),
 
               // Map Container with fixed height
-              Container(
-                height: 200,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: const Color(0xFF2A2A2A), // Dark fallback color
-                  image: const DecorationImage(
-                    image: AssetImage('assets/maps.png'),
-                    fit: BoxFit.cover,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 8,
-                      spreadRadius: 1,
-                      offset: const Offset(0, 3),
+              Stack(
+                children: [
+                  Container(
+                    height: 200,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: const Color(0xFF2A2A2A), // Dark fallback color
+                      image: const DecorationImage(
+                        image: AssetImage('assets/maps.png'),
+                        fit: BoxFit.cover,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 8,
+                          spreadRadius: 1,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                child: const Center(
-                  child: Icon(Icons.location_on, color: Colors.red, size: 50),
-                ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                        size: 50,
+                      ),
+                    ),
+                  ),
+                  // Overlay button for interactive map
+                  Positioned.fill(
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(15),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) =>
+                                      MapsDetailPage(equipment: equipment),
+                            ),
+                          );
+                        },
+                        splashColor: Colors.purple.withOpacity(0.3),
+                        highlightColor: Colors.transparent,
+                      ),
+                    ),
+                  ),
+                ],
               ),
 
               const SizedBox(height: 20),
@@ -223,7 +275,7 @@ class EquipmentDetailPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(icon, size: 24, color: const Color(0xFF9C27B0)), // Light purple
+          Icon(icon, size: 24, color: Colors.white), // Light purple
           const SizedBox(width: 16),
           Text(
             title,
@@ -238,7 +290,7 @@ class EquipmentDetailPage extends StatelessWidget {
             value,
             style: const TextStyle(
               fontSize: 16,
-              color: Color(0xFFBDBDBD), // Light gray
+              color: Colors.white, // Light gray
             ),
           ),
         ],
