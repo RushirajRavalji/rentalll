@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rentall/firebase_options.dart';
 import 'package:rentall/onboarding_page.dart';
-import 'package:rentall/presentation/pages/equipment_detail_page.dart';
-import 'package:rentall/presentation/pages/equipment_list_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

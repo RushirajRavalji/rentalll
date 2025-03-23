@@ -3,7 +3,7 @@ import 'package:rentall/data.models/equipment.dart';
 import 'package:rentall/presentation/widgets/equipments_card.dart';
 
 class EquipmentListScreen extends StatelessWidget {
-  EquipmentListScreen({Key? key}) : super(key: key);
+  EquipmentListScreen({super.key});
 
   final List<Equipment> equipments = [
     Equipment(
