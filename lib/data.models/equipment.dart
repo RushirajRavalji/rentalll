@@ -8,6 +8,6 @@ class Equipment {
     required this.model,
     required this.location,
     required this.powerRating,
-    required this.pricePerHour,
+    required this.pricePerHour, required String roomNumber, required int floor, required String detailedLocation, required bool isAvailable,
   });
 }

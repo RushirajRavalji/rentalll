@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
       location: "Downtown",
       powerRating: 5.5,
       pricePerHour: 45.99,
+      detailedLocation: "Main Street, Floor 1, Room 101",
+      floor: 1,
+      roomNumber: "101",
+      isAvailable: true,
     );
 
     return MaterialApp(
@@ -31,7 +35,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
       ),
-
       home: const OnboardingPage(),
       // home: MapsDetailPage(equipment: sampleEquipment),
     );

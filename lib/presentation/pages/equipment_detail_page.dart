@@ -14,6 +14,10 @@ class EquipmentDetailPage extends StatelessWidget {
       location: "Wing A",
       powerRating: 120,
       pricePerHour: 50,
+      detailedLocation: "Wing A, Floor 3, Room 302", // Added detailed location
+      floor: 3, // Added floor
+      roomNumber: "302", // Added room number
+      isAvailable: true, // Added availability
     );
 
     return Scaffold(
@@ -143,7 +147,7 @@ class EquipmentDetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
 
-              // Map Container with fixed height
+              // Map Container with fixed height - UPDATED SECTION
               Stack(
                 children: [
                   Container(
@@ -165,11 +169,81 @@ class EquipmentDetailPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: const Center(
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.red,
-                        size: 50,
+                  ),
+                  // Location pin with exact location details
+                  Positioned(
+                    top: 75,
+                    left: 160,
+                    child: Column(
+                      children: [
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.red,
+                          size: 50,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 8,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.7),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Text(
+                            "Wing A, Floor 3, Room 302",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  // Building floor indicator
+                  Positioned(
+                    top: 16,
+                    right: 16,
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text(
+                            "Floor 3",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              Container(
+                                width: 8,
+                                height: 8,
+                                decoration: const BoxDecoration(
+                                  color: Colors.green,
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              const Text(
+                                "Available",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ),
