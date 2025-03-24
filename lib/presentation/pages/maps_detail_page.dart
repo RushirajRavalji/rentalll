@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:rentall/data.models/equipment.dart';
+import 'package:rentall/data/models/equipment.dart';
 
 class MapsDetailPage extends StatelessWidget {
   final Equipment equipment;
@@ -24,7 +24,7 @@ class MapsDetailPage extends StatelessWidget {
         children: [
           FlutterMap(
             options: const MapOptions(
-              initialCenter: LatLng(51, -0.09),
+              initialCenter: LatLng(21.1702, 72.8311),
               initialZoom: 13.0,
             ),
             children: [

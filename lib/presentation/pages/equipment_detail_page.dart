@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentall/data.models/equipment.dart';
+import 'package:rentall/data/models/equipment.dart';
 import 'package:rentall/presentation/widgets/equipments_card.dart';
 import 'package:rentall/presentation/pages/maps_detail_page.dart'; // Import the MapsDetailPage
 

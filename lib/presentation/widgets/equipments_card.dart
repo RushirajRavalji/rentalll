@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rentall/data.models/equipment.dart';
+import 'package:rentall/data/models/equipment.dart';
 import 'package:rentall/presentation/pages/equipment_detail_page.dart';
 
 class EquipmentsCard extends StatelessWidget {
