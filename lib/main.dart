@@ -53,14 +53,13 @@
 //     );
 //   }
 // }
-/////////<-------------------------------------><------------------------>////////////
+//? ///////<------------------------------------->||||||<------------------------>////////// //
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:rentall/data/models/equipment.dart';
 import 'package:rentall/firebase_options.dart';
 import 'package:rentall/injection_container.dart';
 import 'package:rentall/onboarding_page.dart';
-import 'package:rentall/presentation/pages/maps_detail_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -55,11 +55,9 @@
 //   }
 // }
 
-//?<-------------------->
+//? ///////<------------------------------------->||||||<------------------------>////////// //
 import 'package:flutter/material.dart';
 import 'package:rentall/data/models/equipment.dart';
-import 'package:rentall/presentation/bloc/equipment_bloc.dart';
-import 'package:rentall/presentation/bloc/equipment_state.dart';
 import 'package:rentall/presentation/widgets/equipments_card.dart';
 
 class EquipmentListScreen extends StatelessWidget {
